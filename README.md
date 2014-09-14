@@ -25,7 +25,7 @@ The **AD9850** library instantiates a **DDS** object, the user does not need to 
 ```
 ## Hardware connections : ##
 
-![ad9850_connections](https://cloud.githubusercontent.com/assets/8761871/4262821/f5b7d230-3bba-11e4-85c7-4f8bd9ee7161.png)
+![ad9850_connections](https://raw.githubusercontent.com/F4GOJ/images/master/AD9850_connections.png)
 
 - W_CLK   -> any pin
 - FQ_UD   -> any pin
