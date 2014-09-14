@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>AD9850 by F4GOJ</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>AD9850</h1>
+        <h2>AD9850 serial library for arduino</h2>
+        <a href="https://github.com/F4GOJ/AD9850" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="arduino-serial-library-for-ad9850" class="anchor" href="#arduino-serial-library-for-ad9850"><span class="octicon octicon-link"></span></a>Arduino serial library for AD9850</h1>
+
+<p>F4GOJ Christophe <a href="mailto:f4goj@free.fr">f4goj@free.fr</a></p>
+
+<p>August 2014</p>
+
+<p>AD9850 datasheet at <a href="http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf">http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf</a></p>
+
+<p>Use this library freely.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>To use the <strong>AD9850</strong> library:  </p>
+
+<ul>
+<li>Go to <a href="https://github.com/F4GOJ/AD9850">https://github.com/F4GOJ/AD9850</a>, click the <a href="https://github.com/F4GOJ/AD9850/archive/master.zip">Download ZIP</a> button and save the ZIP file to a convenient location on your PC.</li>
+<li>Uncompress the downloaded file.  This will result in a folder containing all the files for the library, that has a name that includes the branch name, usually <strong>AD9850-master</strong>.</li>
+<li>Rename the folder to  <strong>AD9850</strong>.</li>
+<li>Copy the renamed folder to the Arduino sketchbook\libraries folder.</li>
+</ul><h2>
+<a name="usage-notes" class="anchor" href="#usage-notes"><span class="octicon octicon-link"></span></a>Usage notes</h2>
+
+<p>The <strong>AD9850</strong> library instantiates a <strong>DDS</strong> object, the user does not need to do this.</p>
+
+<div class="highlight highlight-c++"><pre><span class="cp">#include &lt;AD9850.h&gt;    </span><span class="c1">//http://github.com/F4GOJ/AD9850</span>
+
+</pre></div>
+
+<h2>
+<a name="hardware-connections-" class="anchor" href="#hardware-connections-"><span class="octicon octicon-link"></span></a>Hardware connections :</h2>
+
+<p><img src="https://cloud.githubusercontent.com/assets/8761871/4262821/f5b7d230-3bba-11e4-85c7-4f8bd9ee7161.png" alt="ad9850_connections"></p>
+
+<ul>
+<li>W_CLK   -&gt; any pin</li>
+<li>FQ_UD   -&gt; any pin</li>
+<li>DATA/D7 -&gt; any pin</li>
+<li>RESET   -&gt; any pin</li>
+</ul><h2>
+<a name="functions-" class="anchor" href="#functions-"><span class="octicon octicon-link"></span></a>Functions :</h2>
+
+<h3>
+<a name="beginint-w_clk_pin-int-fq_ud_pin-int-data_pin-int-reset_pin" class="anchor" href="#beginint-w_clk_pin-int-fq_ud_pin-int-data_pin-int-reset_pin"><span class="octicon octicon-link"></span></a>begin(int w_clk_pin, int fq_ud_pin, int data_pin, int reset_pin)</h3>
+
+<h5>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h5>
+
+<p>Initialize the output pins and master reset the AD9850</p>
+
+<h5>
+<a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h5>
+
+<p><code>DDS.begin(w_clk, fq_ud, data, reset);</code></p>
+
+<h5>
+<a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters</h5>
+
+<p><strong>w_clk :</strong> Working clock output pin, any pin <em>(int)</em><br><strong>fq_ud :</strong> Frequency update pin, any pin. <em>(int)</em><br><strong>data  :</strong> Serial data output pin, any pin <em>(int)</em><br><strong>reset :</strong> Reset output pin, any pin. <em>(int)</em></p>
+
+<h5>
+<a name="returns" class="anchor" href="#returns"><span class="octicon octicon-link"></span></a>Returns</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-c++"><pre><span class="kt">void</span> <span class="nf">setup</span><span class="p">(){</span>
+ <span class="n">DDS</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="calibratedouble-trim_frequency" class="anchor" href="#calibratedouble-trim_frequency"><span class="octicon octicon-link"></span></a>calibrate(double trim_frequency)</h3>
+
+<h5>
+<a name="description-1" class="anchor" href="#description-1"><span class="octicon octicon-link"></span></a>Description</h5>
+
+<p>Compensation of crystal oscillator frequency.<br>
+Can be used at any time after initialization.</p>
+
+<h5>
+<a name="syntax-1" class="anchor" href="#syntax-1"><span class="octicon octicon-link"></span></a>Syntax</h5>
+
+<p><code>DDS.calibrate(trim_freq);</code></p>
+
+<h5>
+<a name="parameters-1" class="anchor" href="#parameters-1"><span class="octicon octicon-link"></span></a>Parameters</h5>
+
+<p><strong>trim_freq :</strong> Adjust around 125000000 to match the real crystal oscillator frequency. <em>(double)</em></p>
+
+<h5>
+<a name="returns-1" class="anchor" href="#returns-1"><span class="octicon octicon-link"></span></a>Returns</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-c++"><pre><span class="kt">void</span> <span class="nf">setup</span><span class="p">(){</span>
+ <span class="n">DDS</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
+ <span class="n">DDS</span><span class="p">.</span><span class="n">calibrate</span><span class="p">(</span><span class="mi">124999000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="setfreqdouble-frequency-int-phase" class="anchor" href="#setfreqdouble-frequency-int-phase"><span class="octicon octicon-link"></span></a>setfreq(double frequency, int phase)</h3>
+
+<h5>
+<a name="description-2" class="anchor" href="#description-2"><span class="octicon octicon-link"></span></a>Description</h5>
+
+<p>Sets the output frequency of the AD9850 and the phase of the signal.</p>
+
+<h5>
+<a name="syntax-2" class="anchor" href="#syntax-2"><span class="octicon octicon-link"></span></a>Syntax</h5>
+
+<p><code>DDS.setfreq(frequency, phase);</code></p>
+
+<h5>
+<a name="parameters-2" class="anchor" href="#parameters-2"><span class="octicon octicon-link"></span></a>Parameters</h5>
+
+<p><strong>frequency :</strong> Output frequency in Hz. <em>(double)</em><br><strong>phase :</strong> Sets the phase of the output signal, coded on 5 bits allows 32 phase steps of 11,25° each. <em>(int)</em></p>
+
+<h5>
+<a name="returns-2" class="anchor" href="#returns-2"><span class="octicon octicon-link"></span></a>Returns</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-c++"><pre><span class="kt">double</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mi">10000000</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">phase</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">DDS</span><span class="p">.</span><span class="n">setfreq</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">phase</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="down" class="anchor" href="#down"><span class="octicon octicon-link"></span></a>down()</h3>
+
+<h5>
+<a name="description-3" class="anchor" href="#description-3"><span class="octicon octicon-link"></span></a>Description</h5>
+
+<p>Power down mode reducing the dissipated power from 380mW to 30mW <a href="https://github.com/5V" class="user-mention">@5V</a></p>
+
+<h5>
+<a name="syntax-3" class="anchor" href="#syntax-3"><span class="octicon octicon-link"></span></a>Syntax</h5>
+
+<p><code>DDS.down();</code></p>
+
+<h5>
+<a name="parameters-3" class="anchor" href="#parameters-3"><span class="octicon octicon-link"></span></a>Parameters</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="returns-3" class="anchor" href="#returns-3"><span class="octicon octicon-link"></span></a>Returns</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="example-3" class="anchor" href="#example-3"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-c++"><pre><span class="n">DDS</span><span class="p">.</span><span class="n">down</span><span class="p">();</span>
+</pre></div>
+
+<h3>
+<a name="up" class="anchor" href="#up"><span class="octicon octicon-link"></span></a>up()</h3>
+
+<h5>
+<a name="description-4" class="anchor" href="#description-4"><span class="octicon octicon-link"></span></a>Description</h5>
+
+<p>Wakes-up the AD9850 from power down mode.</p>
+
+<h5>
+<a name="syntax-4" class="anchor" href="#syntax-4"><span class="octicon octicon-link"></span></a>Syntax</h5>
+
+<p><code>DDS.up();</code></p>
+
+<h5>
+<a name="parameters-4" class="anchor" href="#parameters-4"><span class="octicon octicon-link"></span></a>Parameters</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="returns-4" class="anchor" href="#returns-4"><span class="octicon octicon-link"></span></a>Returns</h5>
+
+<p>None.</p>
+
+<h5>
+<a name="example-4" class="anchor" href="#example-4"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-c++"><pre><span class="n">DDS</span><span class="p">.</span><span class="n">down</span><span class="p">();</span> <span class="c1">// Entering power down mode</span>
+
+<span class="c1">// some code doing something</span>
+
+<span class="p">...</span>
+
+<span class="n">DDS</span><span class="p">.</span><span class="n">up</span><span class="p">();</span> <span class="c1">// WAKE-UP !!! :)</span>
+</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/F4GOJ/AD9850/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/F4GOJ/AD9850/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/F4GOJ/AD9850"></a> is maintained by <a href="https://github.com/F4GOJ">F4GOJ</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
