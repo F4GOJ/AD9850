@@ -7,7 +7,7 @@ Amélioration vers SPI par F4GOH Anthony f4goh@orange.fr
 
 Cette librairie utilise l'Interface de Périphérique Série (SPI) pour accélérer la mise à jour de l'AD9850 de 700µs par la liaison série logicielle à 90µs (54µs pour le calcul du mot deltaphase et 36µs pour le transfert)
 
-AD9850 datasheet at http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf
+Documentation de l'AD9850 à http://www.analog.com/static/imported-files/data_sheets/AD9850.pdf
 
 Utilisez cette librairie librement.
 
