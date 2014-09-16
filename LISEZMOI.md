@@ -24,7 +24,7 @@ La librairie **AD9850SPI** crée une instance de l'objet **DDS**, l'utilisateur 
 ```
 ## Connexions : ##
 
-![ad9850_connections](https://raw.githubusercontent.com/F4GOJ/images/master/AD9850_connections.png)
+![ad9850](https://raw.githubusercontent.com/F4GOJ/AD9850/master/images/AD9850.png)
 
 - W_CLK   -> n'importe quelle broche.
 - FQ_UD   -> n'importe quelle broche.
