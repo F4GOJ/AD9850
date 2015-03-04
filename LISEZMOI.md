@@ -1,4 +1,4 @@
-# Librairie Arduino SPI pour AD9850 #
+# Librairie Arduino pour AD9850 #
 F4GOJ Christophe f4goj@free.fr
 
 Août 2014
@@ -33,14 +33,15 @@ La librairie **AD9850** crée une instance de l'objet **DDS**, l'utilisateur n'a
 
 ## Fonctions : ##
 
-###begin(int w_clk_pin, int fq_ud_pin, int data_pin int reset_pin)
+###begin(int w_clk_pin, int fq_ud_pin, int data_pin, int reset_pin)
 #####Description
 Initialise les broches de sortie et effectue une remise à zéro générale de l'AD9850.
 #####Syntaxe
-`DDS.begin(w_clk, fq_ud, reset);`
+`DDS.begin(w_clk, fq_ud, data, reset);`
 #####Paramètres
 **w_clk :** Broche de sortie SCK, n'importe quelle broche *(int)*<br>
 **fq_ud :** Broche de sortie de mise à jour de la fréquence, n'importe quelle broche. *(int)*<br>
+**data :** Broche de sortie de données, n'importe quelle broche *(int)*<br>
 **reset :** Broche de sortie de RàZ, n'importe quelle broche. *(int)*
 #####Retourne
 Rien.
