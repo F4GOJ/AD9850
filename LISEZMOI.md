@@ -48,7 +48,7 @@ Rien.
 #####Exemple
 ```c++
 void setup(){
- DDS.begin(13, 7, 8, 9);
+ DDS.begin(6, 7, 8, 9);
 }
 ```
 ###calibrate(double trim_frequency)
@@ -64,7 +64,7 @@ Rien.
 #####Exemple
 ```c++
 void setup(){
- DDS.begin(13, 8, 9);
+ DDS.begin(6, 7, 8, 9);
 }
 
 void loop(){
