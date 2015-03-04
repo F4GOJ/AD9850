@@ -8,19 +8,19 @@ Documentation de l'AD9850 à http://www.analog.com/static/imported-files/data_sh
 Utilisez cette librairie librement.
 
 ## Installation ##
-Pour utiliser la librairie **AD9850SPI** :
-- Allez à https://github.com/F4GOJ/AD9850SPI, cliquez le bouton [Download ZIP](https://github.com/F4GOJ/AD9850SPI/archive/master.zip) et enregistrez le fichier ZIP à l'endroit de votre convenance.
-- Décompressez le fichier. Vous obtiendrez un répertoire contenant tous les fichiers de la librairie avec un nom comprenant le nom de branche, typiquement **AD9850SPI-master**.
-- Renommez le répertoire en **AD9850SPI**.
+Pour utiliser la librairie **AD9850** :
+- Allez à https://github.com/F4GOJ/AD9850, cliquez le bouton [Download ZIP](https://github.com/F4GOJ/AD9850/archive/master.zip) et enregistrez le fichier ZIP à l'endroit de votre convenance.
+- Décompressez le fichier. Vous obtiendrez un répertoire contenant tous les fichiers de la librairie avec un nom comprenant le nom de branche, typiquement **AD9850-master**.
+- Renommez le répertoire en **AD9850**.
 - Copiez le répertoire renommé dans le répertoire Arduino \libraries.
 
 
 ## Notes d'utilisation##
 
-La librairie **AD9850SPI** crée une instance de l'objet **DDS**, l'utilisateur n'a pas pas besoin de le faire.
+La librairie **AD9850** crée une instance de l'objet **DDS**, l'utilisateur n'a pas pas besoin de le faire.
 
 ```c++
-#include <AD9850SPI.h> //http://github.com/F4GOJ/AD9850SPI
+#include <AD9850.h> //http://github.com/F4GOJ/AD9850
 ```
 ## Connexions : ##
 
@@ -39,9 +39,8 @@ Initialise les broches de sortie et effectue une remise à zéro générale de l
 #####Syntaxe
 `DDS.begin(w_clk, fq_ud, reset);`
 #####Paramètres
-**w_clk :** Broche de sortie SPI SCK, n'importe quelle broche *(int)*<br>
+**w_clk :** Broche de sortie SCK, n'importe quelle broche *(int)*<br>
 **fq_ud :** Broche de sortie de mise à jour de la fréquence, n'importe quelle broche. *(int)*<br>
-**reset_pin :** Broche de sortie de RàZ, n'importe quelle broche. *(int)*
 **reset :** Broche de sortie de RàZ, n'importe quelle broche. *(int)*
 #####Retourne
 Rien.
