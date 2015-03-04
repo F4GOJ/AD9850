@@ -1,4 +1,4 @@
-#include <AD9850SPI.h>
+#include <AD9850.h>
 
 const int W_CLK_PIN = 7;
 const int FQ_UD_PIN = 8;
