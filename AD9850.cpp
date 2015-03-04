@@ -76,7 +76,7 @@ void AD9850::down() {
 }
     
 
-void AD9850SPI::up() {
+void AD9850::up() {
 	update();
 }
 
