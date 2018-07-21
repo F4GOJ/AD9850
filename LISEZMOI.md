@@ -33,35 +33,35 @@ La librairie **AD9850** crée une instance de l'objet **DDS**, l'utilisateur n'a
 
 ## Fonctions : ##
 
-###begin(int w_clk_pin, int fq_ud_pin, int data_pin, int reset_pin)
-#####Description
+### begin(int w_clk_pin, int fq_ud_pin, int data_pin, int reset_pin)
+##### Description
 Initialise les broches de sortie et effectue une remise à zéro générale de l'AD9850.
-#####Syntaxe
+##### Syntaxe
 `DDS.begin(w_clk, fq_ud, data, reset);`
-#####Paramètres
+##### Paramètres
 **w_clk :** Broche de sortie SCK, n'importe quelle broche *(int)*<br>
 **fq_ud :** Broche de sortie de mise à jour de la fréquence, n'importe quelle broche. *(int)*<br>
 **data :** Broche de sortie de données, n'importe quelle broche *(int)*<br>
 **reset :** Broche de sortie de RàZ, n'importe quelle broche. *(int)*
-#####Retourne
+##### Retourne
 Rien.
-#####Exemple
+##### Exemple
 ```c++
 void setup(){
  DDS.begin(6, 7, 8, 9);
 }
 ```
-###calibrate(double trim_frequency)
-#####Description
+### calibrate(double trim_frequency)
+##### Description
 Compensation de la féquence de l'oscillateur.<br>
 Peut être utilisée à n'importe quel moment après l'initialisation.
-#####Syntaxe
+##### Syntaxe
 `DDS.calibrate(trim_freq);`
-#####Paramètres
+##### Paramètres
 **trim_freq :** Ajuster autour de 125000000 pour correspondre à la fréquence réelle de l'oscillateur. *(double)*
-#####Retourne
+##### Retourne
 Rien.
-#####Exemple
+##### Exemple
 ```c++
 void setup(){
  DDS.begin(6, 7, 8, 9);
@@ -71,45 +71,45 @@ void loop(){
  DDS.calibrate(124999000);
 }
 ```
-###setfreq(double frequency, int phase)
-#####Description
+### setfreq(double frequency, int phase)
+##### Description
 Détermine la fréquence de sortie de l'AD9850 et la phase du signal.
-#####Syntaxe
+##### Syntaxe
 `DDS.setfreq(frequency, phase);`
-#####Paramètres
+##### Paramètres
 **frequency :** Fréquence de sortie en HZ. *(double)*<br>
 **phase :** Phase du signal, codée sur 5 bits permet 32 pas de phase de 11,25° *(int)*
-#####Retourne
+##### Retourne
 Rien.
-#####Exemple
+##### Exemple
 ```c++
 double frequency = 10000000;
 int phase = 0;
 DDS.setfreq(frequency, phase);
 ```
-###down()
-#####Description
+### down()
+##### Description
 Mode "extinction" réduisant la puissance dissipée de 380mW à 30mW sous 5V
-#####Syntaxe
+##### Syntaxe
 `DDS.down();`
-#####Paramètres
+##### Paramètres
 Aucun.
-#####Retourne
+##### Retourne
 Rien.
-#####Exemple
+##### Exemple
 ```c++
 DDS.down();
 ```
-###up()
-#####Description
+### up()
+##### Description
 Sort l'AD9850 du mode "extinction"
-#####Syntaxe
+##### Syntaxe
 `DDS.up();`
-#####Paramètres
+##### Paramètres
 Aucun.
-#####Retourne
+##### Retourne
 Rien.
-#####Exemple
+##### Exemple
 ```c++
 DDS.down(); // Entrée en mode "extinction"
 
