@@ -6,7 +6,7 @@
 #######################################
 
 AD9850	KEYWORD1
-DDS KEYWORD1
+DDS	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
